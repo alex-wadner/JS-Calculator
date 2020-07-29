@@ -2,6 +2,7 @@ var calc = {
     input: [],
     memory: [],
     operator: [],
+    decimals: [],
 
     addInput(digit) {
         if (digit === ".") { // prevents more than 1 decimal being used. 
@@ -35,6 +36,7 @@ var calc = {
         }
         this.convert(calc.memory);
         this.input = [];
+        this.decimals = [];
         view.displayMemory(); // shows memory instead of input, which is now 0.
     },
 
@@ -61,6 +63,7 @@ var calc = {
         calc.input = [];
         calc.memory = [];
         calc.operator = [];
+        calc.decimals = [];
     },
     
     equal() {
@@ -162,7 +165,7 @@ document.addEventListener("keydown", function(event) {
     }
     else if (event.keyCode === 27) { //clear
         calc.allClear();
-        view.displayInput(); 
+        view.displayInput();
     }
     else if (event.keyCode === 13) { //enter/equal
         calc.equal()
