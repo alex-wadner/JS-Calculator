@@ -4,9 +4,13 @@ var calc = {
     operator: [],
 
     addInput(digit) {
-        if (digit === "." && calc.input.includes(".")) { // prevents more than 1 decimal from being used
-            return view.displayInput();
-        }; 
+        if (digit === ".") { // prevents more than 1 decimal being used. 
+            calc.decimals.push(digit);
+            if (calc.decimals.length > 1) {
+                calc.decimals.pop()
+                return view.displayInput();
+            }
+        };
         if (digit === "." && calc.input.length == 0) { // inserts a 0 in front of decimal if no other numbers entered.
             this.input.push("0");
         };
