@@ -99,14 +99,11 @@ var calc = {
 var view = {
     displayInput() {
         let x = calc.input;
-        let last = x[x.length -1];
-        if (last === "." || last === 0 || last === '') {
-            x = x.join('');
-            document.querySelector('h1').innerHTML = x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-            console.log(x);
+        if (x.length === 0) {
+            document.querySelector('h1').innerHTML = 0;
         } else {
             x = x.join('');
-            document.querySelector('h1').innerHTML = Number(x).toLocaleString(undefined, {maximumFractionDigits: 8});
+            document.querySelector('h1').innerHTML = x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
             console.log(x);
         }
     },
